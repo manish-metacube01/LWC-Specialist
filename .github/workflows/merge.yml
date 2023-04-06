@@ -21,6 +21,10 @@ jobs:
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
+                  echo "Checking wc..."
+                  which wc || { echo "wc not found"; exit 1; }
+                  echo "Checking awk..."
+                  which awk || { echo "awk not found"; exit 1; }
 
             # Store secret for acc org
             - name: "Populate auth file with ACC_SFDX_URL secret"
