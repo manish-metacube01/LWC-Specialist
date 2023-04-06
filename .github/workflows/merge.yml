@@ -32,6 +32,7 @@ jobs:
               run: |
                   echo ${{ secrets.ACC_SFDX_URL}} > ./ACC_SFDX_URL.txt
                   secretFileSize=$(wc -c "./ACC_SFDX_URL.txt" | awk '{print $1}')
+                  echo secretFileSize
                   if [ "$secretFileSize" -ge 1 ]; then
                       echo "Missing ACC_SFDX_URL secret. Is this workflow running on a fork?";
                       exit 1;
